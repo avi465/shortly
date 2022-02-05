@@ -1,0 +1,124 @@
+<div class="py-12">
+    <div class="h-gutter py-4">
+        <div
+            class="bg-blue-50 rounded-md shadow grid grid-cols-1 sm:grid-flow-col sm:grid-cols-2 lg:grid-cols-3 gap-4 pb-4">
+            <form id="myForm" class="px-2 py-6 space-y-6">
+                <div class="relative pb-12">
+                    <h1 class="-rotate-3 font-extrabold text-4xl text-gray-400 block font-comforter">Your url, your
+                        way:)</h1>
+                    <h1 class="-rotate-3 absolute font-black text-5xl text-violet-600 block font-comforter">Shorten
+                        link</h1>
+                    <h1 class="px-0.5 py-0.5 -rotate-3 absolute font-semibold text-5xl text-white block font-comforter">
+                        Shorten link</h1>
+                    <h1 class="px-0.5 py-0.5 -rotate-3 absolute font-thin text-5xl text-pink-600 block font-comforter">
+                        Shorten link</h1>
+                </div>
+                <div>
+                    <label for="longUrl" class="font-semibold text-sm text-gray-600 py-1 block">Enter the long
+                        url</label>
+                    <input type="url" name="longUrl" required id="longUrl" placeholder="https://example.com"
+                        class="py2 appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm placeholder:text-sm placeholder:font-semibold placeholder:text-gray-400">
+                </div>
+                <div>
+                    <label for="shortUrl" class="font-semibold text-sm text-gray-600 py-1 block">Shortend url</label>
+                    <input type="text" id="shortUrl" value="Short url will go here..." disabled
+                        class="py2 appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 sm:text-sm text-sm font-semibold text-gray-400">
+                    <div class="my-4">
+                        <span onclick="copy()"
+                            class=" shadow border p-2 rounded-md group hover:border-gray-200 hover:border-b-2 hover:border-r-2"><i
+                                class="fas fa-copy font-semibold text-xl text-gray-400 group-hover:text-gray-500"></i></span>
+                        <span
+                            class=" shadow border p-2 rounded-md group hover:border-gray-200 hover:border-b-2 hover:border-r-2"><i
+                                class="fas fa-paper-plane font-semibold text-xl text-gray-400 group-hover:text-gray-500"></i></span>
+                        <span
+                            class=" shadow border p-2 rounded-md group hover:border-gray-200 hover:border-b-2 hover:border-r-2"><i
+                                class="fas fa-external-link-alt font-semibold text-xl text-gray-400 group-hover:text-gray-500"></i></span>
+                        <span
+                            class=" shadow border p-2 rounded-md group hover:border-gray-200 hover:border-b-2 hover:border-r-2"><i
+                                class="fas fa-envelope font-semibold text-xl text-gray-400 group-hover:text-gray-500"></i></span>
+                        <span
+                            class=" shadow border p-2 rounded-md group hover:border-gray-200 hover:border-b-2 hover:border-r-2"><i
+                                class="fas fa-qrcode font-semibold text-xl text-gray-400 group-hover:text-gray-500"></i></span>
+                        <span
+                            class=" shadow border p-2 rounded-md group hover:border-gray-200 hover:border-b-2 hover:border-r-2"><i
+                                class="fas fa-ellipsis-v font-semibold text-xl text-gray-400 group-hover:text-gray-500"></i></span>
+                    </div>
+                </div>
+                <button type="submit"
+                    class="border-2 font-semibold text-sm rounded-md block w-full py-2 px-4 border-transparent text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Shorten
+                </button>
+                <div>
+                    <h1 class="text-sm font-semibold text-gray-400">By continuing you agree to <a
+                            class="text-indigo-400">terms & policies</a></h1>
+                </div>
+            </form>
+            <!-- url data element -->
+            <div class="bg-zinc-100 sm:col-span-1 lg:col-span-2">
+                <div
+                    class="border-b-2 border-t-2 border-t-indigo-600 rounded-b-2xl px-6 py-3 shadow-md flex justify-between">
+                    <h1 class="text-xl font-semibold text-stone">Your Recent Urls</h1>
+                    <button
+                        class="border-2 rounded-full h-8 w-8 bg-gray-400 hover:bg-indigo-500 focus:ring-indigo-500 focus:bg-indigo-500"><i
+                            class="fas fa-arrow-circle-down text-white"></i>
+                    </button>
+                </div>
+
+                <div class="px-6 py-3 border-b-2 rounded-b-2xl mt-0.5 shadow-md">
+                    <div class="bg-blue-200 p-2 rounded-md m-1">https://www/google.com</div>
+                    <div class="bg-green-200 p-2 rounded-md m-1">https://www/short.ly/c3
+                    </div>
+                    <div class="my-4 px-1">
+                        <span
+                            class=" shadow border p-2 rounded-md group hover:border-gray-200 hover:border-b-2 hover:border-r-2"><i
+                                class="fas fa-copy font-semibold text-xl text-gray-400 group-hover:text-gray-500"></i></span>
+                        <span
+                            class=" shadow border p-2 rounded-md group hover:border-gray-200 hover:border-b-2 hover:border-r-2"><i
+                                class="fas fa-paper-plane font-semibold text-xl text-gray-400 group-hover:text-gray-500"></i></span>
+                        <span
+                            class=" shadow border p-2 rounded-md group hover:border-gray-200 hover:border-b-2 hover:border-r-2"><i
+                                class="fas fa-external-link-alt font-semibold text-xl text-gray-400 group-hover:text-gray-500"></i></span>
+                        <span
+                            class=" shadow border p-2 rounded-md group hover:border-gray-200 hover:border-b-2 hover:border-r-2"><i
+                                class="fas fa-envelope font-semibold text-xl text-gray-400 group-hover:text-gray-500"></i></span>
+                        <span
+                            class=" shadow border p-2 rounded-md group hover:border-gray-200 hover:border-b-2 hover:border-r-2"><i
+                                class="fas fa-qrcode font-semibold text-xl text-gray-400 group-hover:text-gray-500"></i></span>
+                        <span
+                            class=" shadow border p-2 rounded-md group hover:border-gray-200 hover:border-b-2 hover:border-r-2"><i
+                                class="fas fa-ellipsis-v font-semibold text-xl text-gray-400 group-hover:text-gray-500"></i></span>
+                    </div>
+                </div>
+
+                <div class="px-6 py-3 border-b-2 rounded-b-2xl mt-0.5 shadow-md">
+                    <div class="bg-blue-200 p-2 rounded-md m-1">https://www/google.com</div>
+                    <div class="bg-green-200 p-2 rounded-md m-1">https://www/short.ly/c3
+                    </div>
+                    <div class="my-4 px-1">
+                        <span
+                            class=" shadow border p-2 rounded-md group hover:border-gray-200 hover:border-b-2 hover:border-r-2"><i
+                                class="fas fa-copy font-semibold text-xl text-gray-400 group-hover:text-gray-500"></i></span>
+                        <span
+                            class=" shadow border p-2 rounded-md group hover:border-gray-200 hover:border-b-2 hover:border-r-2"><i
+                                class="fas fa-paper-plane font-semibold text-xl text-gray-400 group-hover:text-gray-500"></i></span>
+                        <span
+                            class=" shadow border p-2 rounded-md group hover:border-gray-200 hover:border-b-2 hover:border-r-2"><i
+                                class="fas fa-external-link-alt font-semibold text-xl text-gray-400 group-hover:text-gray-500"></i></span>
+                        <span
+                            class=" shadow border p-2 rounded-md group hover:border-gray-200 hover:border-b-2 hover:border-r-2"><i
+                                class="fas fa-envelope font-semibold text-xl text-gray-400 group-hover:text-gray-500"></i></span>
+                        <span
+                            class=" shadow border p-2 rounded-md group hover:border-gray-200 hover:border-b-2 hover:border-r-2"><i
+                                class="fas fa-qrcode font-semibold text-xl text-gray-400 group-hover:text-gray-500"></i></span>
+                        <span
+                            class=" shadow border p-2 rounded-md group hover:border-gray-200 hover:border-b-2 hover:border-r-2"><i
+                                class="fas fa-ellipsis-v font-semibold text-xl text-gray-400 group-hover:text-gray-500"></i></span>
+                    </div>
+                </div>
+
+            </div>
+            <!-- data element ends -->
+        </div>
+    </div>
+</div>
+</div>
+</div>

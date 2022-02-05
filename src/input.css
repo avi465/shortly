@@ -1,0 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Comforter&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.h-gutter {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}

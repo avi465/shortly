@@ -1,0 +1,157 @@
+<div class="bg-gray-50">
+    <div class="">
+        <div class="grid grid-cols-4 gap-2">
+            <!-- side navigation -->
+            <div class="col-span-1 h-screen bg-gray-100 sticky top-0">
+                <!-- brand logo -->
+                <div class="py-4 text-2xl font-extrabold pl-4 sm:pl-6 lg:pl-8">
+                    <a href="/">
+                        <h1>Shortly</h1>
+                    </a>
+                </div>
+                <!-- menu -->
+                <div class="grid grid-flow-row">
+                    <!-- menu item -->
+                    <div class="flex w-full my-1 hover:bg-gray-200 focus:text-white pl-4 sm:pl-6 lg:pl-8">
+                        <h1 class="py-2 font-semibold text-gray-600">
+                            <i class="fas fa-user pr-2"></i>Client
+                        </h1>
+                    </div>
+                    <div class="flex w-full my-1 hover:bg-gray-200 focus:text-white pl-4 sm:pl-6 lg:pl-8">
+                        <h1 class="py-2 font-semibold text-gray-600">
+                            <i class="fas fa-archive pr-2"></i>Archive
+                        </h1>
+                    </div>
+                    <div class="flex w-full my-1 hover:bg-gray-200 focus:text-white pl-4 sm:pl-6 lg:pl-8">
+                        <h1 class="py-2 font-semibold text-gray-600">
+                            <i class="fas fa-clipboard pr-2"></i>Clipboard
+                        </h1>
+                    </div>
+
+                    <div class="pl-4 sm:pl-6 lg:pl-8">
+                        <hr class="border-1 border-stone-300 bg-stone-300 my-1">
+                    </div>
+
+                    <div class="flex w-full my-1 hover:bg-indigo-100 pl-4 sm:pl-6 lg:pl-8">
+                        <h1 class="py-2 font-semibold text-gray-600">
+                            <i class="fas fa-donate pr-2"></i>Contribute
+                        </h1>
+                    </div>
+                    <div class="flex w-full my-1 hover:bg-indigo-100 pl-4 sm:pl-6 lg:pl-8">
+                        <h1 class="py-2 font-semibold text-gray-600">
+                            <i class="fab fa-github pr-2"></i>Github
+                        </h1>
+                    </div>
+                    <div class="flex w-full my-1 hover:bg-indigo-100 pl-4 sm:pl-6 lg:pl-8">
+                        <h1 class="py-2 font-semibold text-gray-600">
+                            <i class="fab fa-twitter pr-2"></i>Twitter
+                        </h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-span-3">
+                <!-- top navbar -->
+                <div class="sticky top-0 bg-white shadow-b pr-4 sm:pr-6 lg:pr-8">
+                    <div class="py-3 flex justify-between">
+                        <div
+                            class="bg-white rounded-md font-semibold text-sm text-gray-600 border-2 hover:border-indigo-400">
+                            <input name="search" id="search" placeholder="Search Here"
+                                class="outline-0 rounded-l-md py-2 pl-4 pr-2 placeholder:font-medium placeholder:text-sm placeholder:text-gray-400">
+                            <button class="px-2"><i class="fas fa-search"></i></button>
+                        </div>
+                        <div>
+                            <div class="flex">
+                                <div>
+                                    <button
+                                        class=" mx-4 py-2 px-4 font-semibold text-sm border-2 border-gray-200 bg-white rounded-md">Create
+                                        Url</button>
+                                </div>
+                                <div id="profile"
+                                    class="relative rounded-full h-10 w-10 bg-profile-avtar bg-cover bg-center border-gray-200 border-2">
+                                    <!-- dropdown -->
+                                    <div class="hidden origin-top-right absolute right-0 mt-12 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
+                                        role="menu">
+                                        <div class="py-1" role="none">
+                                            <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" -->
+                                            <a href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem"
+                                                tabindex="-1" id="menu-item-0">Account settings</a>
+                                            <a href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem"
+                                                tabindex="-1" id="menu-item-1">Support</a>
+                                            <a href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem"
+                                                tabindex="-1" id="menu-item-2">License</a>
+                                            <form role="none">
+                                                <button type="submit"
+                                                    class="text-gray-700 block w-full text-left px-4 py-2 text-sm"
+                                                    role="menuitem" tabindex="-1" id="menu-item-3">
+                                                    Sign out
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- main section -->
+                <div class="grid grid-cols-2 gap-1">
+                    <div class="overflow-y-visible border-2 border-gray-200 rounded-md shadow">
+                        <div class="py-4 pl-2">
+                            <div class="grid grid-flow-row gap-2">
+
+                                <div class="">
+                                    <label for="copy-box"
+                                        class="pl-8 my-0.5 block max-w-min rounded-md bg-white font-semibold text-sm text-stone-400">https://www.google.com/xyz...</label>
+                                    <input id="remember-me" name="remember-me" type="checkbox"
+                                        class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
+                                    <label for="remember-me" class="ml-2 inline-block text-sm text-gray-900">
+                                        <div
+                                            class="pl-1 inline-block bg-white border-2 border-violet-400 rounded-md shadow w-fit">
+                                            <input id="copy" type="text" value="https://www.short.ly/fs8d7s3fjt6"
+                                                disabled class="border-0 p-2 text-sm font-semibold text-gray-800">
+                                            <button onclick="copy()" id="copyicon" class=""><i
+                                                    class="fas fa-copy p-2 font-semibold text-gray-400 hover:text-gray-600"></i></button>
+                                            <button class="hidden" id="copydoneicon"><i
+                                                    class="fas fa-check-circle p-2 font-semibold text-green-600"></i></button>
+                                        </div>
+                                </div>
+
+                                <hr class="border-1 border-stone-200 bg-stone-200 my-1">
+
+                                <div class="">
+                                    <label for="copy-box"
+                                        class="pl-8 my-0.5 block max-w-min rounded-md bg-white font-semibold text-sm text-stone-400">https://www.google.com/xyz...</label>
+                                    <input id="remember-me" name="remember-me" type="checkbox"
+                                        class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
+                                    <label for="remember-me" class="ml-2 inline-block text-sm text-gray-900">
+                                        <div
+                                            class="pl-1 inline-block bg-white border-2 border-violet-400 rounded-md shadow w-fit">
+                                            <input id="copy" type="text" value="https://www.short.ly/fs8d7s3fjt6"
+                                                disabled class="border-0 p-2 text-sm font-semibold text-gray-800">
+                                            <button onclick="copy()" id="copyicon" class=""><i
+                                                    class="fas fa-copy p-2 font-semibold text-gray-400 hover:text-gray-600"></i></button>
+                                            <button class="hidden" id="copydoneicon"><i
+                                                    class="fas fa-check-circle p-2 font-semibold text-green-600"></i></button>
+                                        </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div class="bg-stone-100">
+                        <div class="pr-4 sm:pr-6 lg:pr-8">
+                            <div class="py-4 pl-2 rounded-md shadow border-2 border-gray-200">
+                                <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi libero suscipit,
+                                    porro voluptates eos dolores animi doloremque. Mollitia iusto dolor, reiciendis
+                                    doloribus voluptates error itaque rerum ut, magnam saepe alias?</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
