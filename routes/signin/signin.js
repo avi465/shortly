@@ -1,32 +1,31 @@
 const router = require('express').Router();
+const passport = require('passport');
 const userSchema = require('../../database/model/user_model');
 const User = userSchema.User;
 
 router.get("/signin", function (req, res) {
-    res.render("pages/signin");
+    if (req.isAuthenticated()) {
+        res.redirect("/dashboard");
+    } else {
+        res.render("pages/signin");
+    }
 });
 
 router.post("/signin", function (req, res) {
-    const email = req.body.email;
-    const password = req.body.password;
-    User.findOne({ email: email }, function (err, data) {
-        if (!err) {
-            if (data) {
-                if (data.password == password) {
-                    res.redirect("/dashboard");
-                    tempmail = req.body.email;
-                } else {
-                    res.redirect("/signin");
-                }
-            } else {
-                res.redirect("/signin");
-            }
+    const user = new User({
+        username: req.body.username,
+        password: req.body.password,
+    });
+
+    req.login(user, function (err) {
+        if (err) {
+            console.log(err);
         } else {
-            res.send(err);
+            passport.authenticate("local")(req, res, function () {
+                res.redirect("/dashboard");
+            });
         }
     });
 });
-
-
 
 module.exports = router;

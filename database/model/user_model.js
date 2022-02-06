@@ -1,24 +1,35 @@
 // user mongoosse model/schema
 const mongoose = require("mongoose");
+const passportLocalMongoose = require("passport-local-mongoose");
+const findOrCreate = require("mongoose-findorcreate");
 
 const userSchema = new mongoose.Schema({
-    name: String,
-    email:
-    {
+    name: {
         type: String,
-        required: true,
+        required: false,
     },
-    password:
-    {
+    email: {
         type: String,
-        required: true,
+        required: false,
+    },
+    password: {
+        type: String,
+        required: false,
+    },
+    googleId: {
+        type: String,
+        required: false,
     },
     date: {
         type: Date,
-        default: Date.now
-    }
+        default: Date.now,
+    },
 });
 
-const User = mongoose.model("User", userSchema);
+// schema plugin
+userSchema.plugin(passportLocalMongoose);
+userSchema.plugin(findOrCreate);
 
-module.exports = {userSchema, User};
+const User = new mongoose.model("User", userSchema);
+
+module.exports = { userSchema, User };

@@ -8,7 +8,11 @@ router.get("/", function (req, res) {
 
 router.get("/blogs", function (req, res) {
     res.render("pages/blogs");
-    tempmail = "hello";
 });
+
+router.get("/logout", function (req, res) {
+    req.logout();
+    res.redirect("/");
+  });
 
 module.exports = router;

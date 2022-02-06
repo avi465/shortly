@@ -15,6 +15,19 @@ const shortUrlRouter = require("./routes/short_url/short_url");
 // mongo db connection
 require("./database/connection/userdb");
 
+const session = require("express-session");
+const passport = require("passport");
+const passportLocalMongoose = require("passport-local-mongoose");
+const GoogleStrategy = require("passport-google-oauth2").Strategy;
+const MongoDBStore = require("connect-mongodb-session")(session);
+const findOrCreate = require("mongoose-findorcreate");
+
+// model
+const userSchema = require('./database/model/user_model');
+const User = userSchema.User;
+const store = require('./database/model/session_model');
+
+
 // ejs
 app.use(express.static("public"));
 app.use(express.json());
@@ -22,6 +35,38 @@ app.set('view engine', 'ejs');
 
 // body parser
 app.use(bodyParser.urlencoded({ extended: false }));
+
+// cookies plugin
+app.use(
+    session({
+        secret: "My secret string is too short.",
+        cookie: {
+            maxAge: 1000 * 60 * 60 * 24 * 30, // 30 days
+        },
+        store: store,
+        resave: false,
+        saveUninitialized: false,
+    })
+);
+
+// passport initialization 
+app.use(passport.initialize());
+app.use(passport.session());
+
+// create strategy
+passport.use(User.createStrategy());
+
+// serialize and deserialize
+passport.serializeUser(function (user, cb) {
+    process.nextTick(function () {
+        cb(null, { id: user.id, username: user.username, name: user.name });
+    });
+});
+passport.deserializeUser(function (user, cb) {
+    process.nextTick(function () {
+        return cb(null, user);
+    });
+});
 
 // main routers
 app.use(mainRouter);
