@@ -10,6 +10,9 @@ const mainRouter = require("./routes/index");
 const newurlRouter = require("./routes/new_url");
 const signinRouter = require("./routes/signin/signin");
 const signupRouter = require("./routes/signup/signup");
+// const facebookAuthRouter = require("./routes/auth/facebookAuth");
+const googleAuthRouter = require("./routes/auth/googleAuth");
+// const twitterAuthRouter = require("./routes/auth/twitterAuth");
 const dashboardRouter = require("./routes/dashboard/dashboard");
 const shortUrlRouter = require("./routes/short_url/short_url");
 // mongo db connection
@@ -17,10 +20,10 @@ require("./database/connection/userdb");
 
 const session = require("express-session");
 const passport = require("passport");
-const passportLocalMongoose = require("passport-local-mongoose");
-const GoogleStrategy = require("passport-google-oauth2").Strategy;
-const MongoDBStore = require("connect-mongodb-session")(session);
-const findOrCreate = require("mongoose-findorcreate");
+// const passportLocalMongoose = require("passport-local-mongoose");
+// const GoogleStrategy = require("passport-google-oauth2").Strategy;
+// const MongoDBStore = require("connect-mongodb-session")(session);
+// const findOrCreate = require("mongoose-findorcreate");
 
 // model
 const userSchema = require('./database/model/user_model');
@@ -39,7 +42,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // cookies plugin
 app.use(
     session({
-        secret: "My secret string is too short.",
+        secret: process.env.SESSION_SECRET,
         cookie: {
             maxAge: 1000 * 60 * 60 * 24 * 30, // 30 days
         },
@@ -82,6 +85,15 @@ app.use(signinRouter);
 
 // signup router
 app.use(signupRouter);
+
+// facebook auth router
+// app.use(facebookAuthRouter);
+
+// google auth router
+app.use(googleAuthRouter);
+
+// twitter auth router
+// app.use(twitterAuthRouter);
 
 // dashboard router
 app.use(dashboardRouter);
