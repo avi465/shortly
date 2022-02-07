@@ -12,7 +12,7 @@ const signinRouter = require("./routes/signin/signin");
 const signupRouter = require("./routes/signup/signup");
 const facebookAuthRouter = require("./routes/auth/facebookAuth");
 const googleAuthRouter = require("./routes/auth/googleAuth");
-// const twitterAuthRouter = require("./routes/auth/twitterAuth");
+const twitterAuthRouter = require("./routes/auth/twitterAuth");
 const dashboardRouter = require("./routes/dashboard/dashboard");
 const shortUrlRouter = require("./routes/short_url/short_url");
 // mongo db connection
@@ -93,7 +93,7 @@ app.use(facebookAuthRouter);
 app.use(googleAuthRouter);
 
 // twitter auth router
-// app.use(twitterAuthRouter);
+app.use(twitterAuthRouter);
 
 // dashboard router
 app.use(dashboardRouter);

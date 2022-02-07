@@ -8,6 +8,9 @@ base62_encoder();
 const tempmail = "";
 
 router.post("/", (function (req, res) {
+    
+    // TO DO: prevent creating short url if the url generated is same as application routes
+    //     Approach 1: we may create api for url generation
     // long url string checking
     let longUrl = "";
     if (req.body.longUrl.includes("http://") || req.body.longUrl.includes("https://")) {
