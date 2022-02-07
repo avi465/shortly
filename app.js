@@ -10,7 +10,7 @@ const mainRouter = require("./routes/index");
 const newurlRouter = require("./routes/new_url");
 const signinRouter = require("./routes/signin/signin");
 const signupRouter = require("./routes/signup/signup");
-// const facebookAuthRouter = require("./routes/auth/facebookAuth");
+const facebookAuthRouter = require("./routes/auth/facebookAuth");
 const googleAuthRouter = require("./routes/auth/googleAuth");
 // const twitterAuthRouter = require("./routes/auth/twitterAuth");
 const dashboardRouter = require("./routes/dashboard/dashboard");
@@ -87,7 +87,7 @@ app.use(signinRouter);
 app.use(signupRouter);
 
 // facebook auth router
-// app.use(facebookAuthRouter);
+app.use(facebookAuthRouter);
 
 // google auth router
 app.use(googleAuthRouter);
