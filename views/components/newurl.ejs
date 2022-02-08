@@ -1,7 +1,6 @@
 <div class="py-12">
     <div class="h-gutter py-4">
-        <div
-            class="bg-blue-50 rounded-md shadow grid grid-cols-1 sm:grid-flow-col sm:grid-cols-2 lg:grid-cols-3 gap-4 pb-4">
+        <div class="bg-blue-50 rounded-md shadow grid grid-cols-1 sm:grid-flow-col sm:grid-cols-2 lg:grid-cols-3 gap-4">
             <form id="myForm" class="px-2 py-6 space-y-6">
                 <div class="relative pb-12">
                     <h1 class="-rotate-3 font-extrabold text-4xl text-gray-400 block font-comforter">Your url, your
@@ -19,14 +18,18 @@
                     <input type="url" name="longUrl" required id="longUrl" placeholder="https://example.com"
                         class="py2 appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm placeholder:text-sm placeholder:font-semibold placeholder:text-gray-400">
                 </div>
-                <div>
+
+                <div id="shortUrlDiv" class="hidden">
                     <label for="shortUrl" class="font-semibold text-sm text-gray-600 py-1 block">Shortend url</label>
                     <input type="text" id="shortUrl" value="Short url will go here..." disabled
-                        class="py2 appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 sm:text-sm text-sm font-semibold text-gray-400">
+                        class="bg-emerald-600 py2 appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-200 sm:text-sm text-sm font-semibold text-white">
                     <div class="my-4">
-                        <span onclick="copy()"
+                        <span onclick="copy()" id="copyicon"
                             class=" shadow border p-2 rounded-md group hover:border-gray-200 hover:border-b-2 hover:border-r-2"><i
                                 class="fas fa-copy font-semibold text-xl text-gray-400 group-hover:text-gray-500"></i></span>
+                        <span id="copydoneicon"
+                            class="hidden shadow border p-2 rounded-md group hover:border-gray-200 hover:border-b-2 hover:border-r-2"><i
+                                class="fas fa-check-circle font-semibold text-xl text-green-600"></i></span>
                         <span
                             class=" shadow border p-2 rounded-md group hover:border-gray-200 hover:border-b-2 hover:border-r-2"><i
                                 class="fas fa-paper-plane font-semibold text-xl text-gray-400 group-hover:text-gray-500"></i></span>
@@ -44,74 +47,81 @@
                                 class="fas fa-ellipsis-v font-semibold text-xl text-gray-400 group-hover:text-gray-500"></i></span>
                     </div>
                 </div>
+
                 <button type="submit"
                     class="border-2 font-semibold text-sm rounded-md block w-full py-2 px-4 border-transparent text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Shorten
                 </button>
+
                 <div>
                     <h1 class="text-sm font-semibold text-gray-400">By continuing you agree to <a
                             class="text-indigo-400">terms & policies</a></h1>
                 </div>
             </form>
             <!-- url data element -->
-            <div class="bg-zinc-100 sm:col-span-1 lg:col-span-2">
-                <div
-                    class="border-b-2 border-t-2 border-t-indigo-600 rounded-b-2xl px-6 py-3 shadow-md flex justify-between">
-                    <h1 class="text-xl font-semibold text-stone">Your Recent Urls</h1>
-                    <button
-                        class="border-2 rounded-full h-8 w-8 bg-gray-400 hover:bg-indigo-500 focus:ring-indigo-500 focus:bg-indigo-500"><i
-                            class="fas fa-arrow-circle-down text-white"></i>
-                    </button>
+            <div class="sm:col-span-1 lg:col-span-2 bg-white px-2">
+                <div class="rounded-md px-6 py-3 shadow-sm">
+                    <h1 class="text-xl font-semibold text-stone text-center">Your Recent Urls</h1>
                 </div>
+                <div class="overflow-y-visible border-2 border-gray-200 rounded-md shadow">
+                    <div class="py-4 pl-2">
+                        <div class="grid grid-flow-row gap-2">
 
-                <div class="px-6 py-3 border-b-2 rounded-b-2xl mt-0.5 shadow-md">
-                    <div class="bg-blue-200 p-2 rounded-md m-1">https://www/google.com</div>
-                    <div class="bg-green-200 p-2 rounded-md m-1">https://www/short.ly/c3
-                    </div>
-                    <div class="my-4 px-1">
-                        <span
-                            class=" shadow border p-2 rounded-md group hover:border-gray-200 hover:border-b-2 hover:border-r-2"><i
-                                class="fas fa-copy font-semibold text-xl text-gray-400 group-hover:text-gray-500"></i></span>
-                        <span
-                            class=" shadow border p-2 rounded-md group hover:border-gray-200 hover:border-b-2 hover:border-r-2"><i
-                                class="fas fa-paper-plane font-semibold text-xl text-gray-400 group-hover:text-gray-500"></i></span>
-                        <span
-                            class=" shadow border p-2 rounded-md group hover:border-gray-200 hover:border-b-2 hover:border-r-2"><i
-                                class="fas fa-external-link-alt font-semibold text-xl text-gray-400 group-hover:text-gray-500"></i></span>
-                        <span
-                            class=" shadow border p-2 rounded-md group hover:border-gray-200 hover:border-b-2 hover:border-r-2"><i
-                                class="fas fa-envelope font-semibold text-xl text-gray-400 group-hover:text-gray-500"></i></span>
-                        <span
-                            class=" shadow border p-2 rounded-md group hover:border-gray-200 hover:border-b-2 hover:border-r-2"><i
-                                class="fas fa-qrcode font-semibold text-xl text-gray-400 group-hover:text-gray-500"></i></span>
-                        <span
-                            class=" shadow border p-2 rounded-md group hover:border-gray-200 hover:border-b-2 hover:border-r-2"><i
-                                class="fas fa-ellipsis-v font-semibold text-xl text-gray-400 group-hover:text-gray-500"></i></span>
-                    </div>
-                </div>
+                            <div class="">
+                                <label for="copy-box"
+                                    class="pl-8 my-0.5 block max-w-min rounded-md bg-white font-semibold text-sm text-stone-400">https://www.google.com/xyz...</label>
+                                <input id="remember-me" name="remember-me" type="checkbox"
+                                    class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
+                                <label for="remember-me" class="ml-2 inline-block text-sm text-gray-900">
+                                    <div
+                                        class="pl-1 inline-block bg-white border-2 border-violet-400 rounded-md shadow w-fit">
+                                        <input id="copy" type="text" value="https://www.short.ly/fs8d7s3fjt6" disabled
+                                            class="border-0 p-2 text-sm font-semibold text-gray-800">
+                                        <button onclick="copy()" id="copyicon" class=""><i
+                                                class="fas fa-copy p-2 font-semibold text-gray-400 hover:text-gray-600"></i></button>
+                                        <button class="hidden" id="copydoneicon"><i
+                                                class="fas fa-check-circle p-2 font-semibold text-green-600"></i></button>
+                                    </div>
+                            </div>
 
-                <div class="px-6 py-3 border-b-2 rounded-b-2xl mt-0.5 shadow-md">
-                    <div class="bg-blue-200 p-2 rounded-md m-1">https://www/google.com</div>
-                    <div class="bg-green-200 p-2 rounded-md m-1">https://www/short.ly/c3
-                    </div>
-                    <div class="my-4 px-1">
-                        <span
-                            class=" shadow border p-2 rounded-md group hover:border-gray-200 hover:border-b-2 hover:border-r-2"><i
-                                class="fas fa-copy font-semibold text-xl text-gray-400 group-hover:text-gray-500"></i></span>
-                        <span
-                            class=" shadow border p-2 rounded-md group hover:border-gray-200 hover:border-b-2 hover:border-r-2"><i
-                                class="fas fa-paper-plane font-semibold text-xl text-gray-400 group-hover:text-gray-500"></i></span>
-                        <span
-                            class=" shadow border p-2 rounded-md group hover:border-gray-200 hover:border-b-2 hover:border-r-2"><i
-                                class="fas fa-external-link-alt font-semibold text-xl text-gray-400 group-hover:text-gray-500"></i></span>
-                        <span
-                            class=" shadow border p-2 rounded-md group hover:border-gray-200 hover:border-b-2 hover:border-r-2"><i
-                                class="fas fa-envelope font-semibold text-xl text-gray-400 group-hover:text-gray-500"></i></span>
-                        <span
-                            class=" shadow border p-2 rounded-md group hover:border-gray-200 hover:border-b-2 hover:border-r-2"><i
-                                class="fas fa-qrcode font-semibold text-xl text-gray-400 group-hover:text-gray-500"></i></span>
-                        <span
-                            class=" shadow border p-2 rounded-md group hover:border-gray-200 hover:border-b-2 hover:border-r-2"><i
-                                class="fas fa-ellipsis-v font-semibold text-xl text-gray-400 group-hover:text-gray-500"></i></span>
+                            <hr class="border-1 border-stone-200 bg-stone-200 my-1">
+
+                            <div class="">
+                                <label for="copy-box"
+                                    class="pl-8 my-0.5 block max-w-min rounded-md bg-white font-semibold text-sm text-stone-400">https://www.google.com/xyz...</label>
+                                <input id="remember-me" name="remember-me" type="checkbox"
+                                    class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
+                                <label for="remember-me" class="ml-2 inline-block text-sm text-gray-900">
+                                    <div
+                                        class="pl-1 inline-block bg-white border-2 border-violet-400 rounded-md shadow w-fit">
+                                        <input id="copy" type="text" value="https://www.short.ly/fs8d7s3fjt6" disabled
+                                            class="border-0 p-2 text-sm font-semibold text-gray-800">
+                                        <button onclick="copy()" id="copyicon" class=""><i
+                                                class="fas fa-copy p-2 font-semibold text-gray-400 hover:text-gray-600"></i></button>
+                                        <button class="hidden" id="copydoneicon"><i
+                                                class="fas fa-check-circle p-2 font-semibold text-green-600"></i></button>
+                                    </div>
+                            </div>
+
+                            <hr class="border-1 border-stone-200 bg-stone-200 my-1">
+
+                            <div class="">
+                                <label for="copy-box"
+                                    class="pl-8 my-0.5 block max-w-min rounded-md bg-white font-semibold text-sm text-stone-400">https://www.google.com/xyz...</label>
+                                <input id="remember-me" name="remember-me" type="checkbox"
+                                    class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
+                                <label for="remember-me" class="ml-2 inline-block text-sm text-gray-900">
+                                    <div
+                                        class="pl-1 inline-block bg-white border-2 border-violet-400 rounded-md shadow w-fit">
+                                        <input id="copy" type="text" value="https://www.short.ly/fs8d7s3fjt6" disabled
+                                            class="border-0 p-2 text-sm font-semibold text-gray-800">
+                                        <button onclick="copy()" id="copyicon" class=""><i
+                                                class="fas fa-copy p-2 font-semibold text-gray-400 hover:text-gray-600"></i></button>
+                                        <button class="hidden" id="copydoneicon"><i
+                                                class="fas fa-check-circle p-2 font-semibold text-green-600"></i></button>
+                                    </div>
+                            </div>
+
+                        </div>
                     </div>
                 </div>
 

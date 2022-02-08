@@ -34,6 +34,7 @@ headerbannerX.addEventListener("click", () => {
 // xhr form request
 const form = document.querySelector('#myForm');
 const shortUrl = document.querySelector('#shortUrl');
+const shortUrlDiv = document.querySelector('#shortUrlDiv');
 
 form.addEventListener('submit', (e) => {
   const data = new FormData(form);
@@ -50,8 +51,34 @@ form.addEventListener('submit', (e) => {
     )
   })
     .then(res => res.json())
-    .then(data => shortUrl.value = data.shortUrl)
+
+    .then(data => {
+      shortUrl.value = data.shortUrl;
+      shortUrlDiv.classList.remove("hidden");
+      let count = localStorage.getItem('count');
+      count++;
+      localStorage.setItem('count', count);
+      localStorage.setItem(count, data.shortUrl);
+    })
+
     .catch(err => console.log(err));
 }
 );
 
+function copy() {
+  let copyText = document.querySelector("#shortUrl");
+  const copyIcon = document.querySelector("#copyicon");
+  const copyDoneIcon = document.querySelector("#copydoneicon");
+  const toastMessage = document.querySelector("#toastmessage");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999); /* For mobile devices */
+  navigator.clipboard.writeText(copyText.value);
+  copyIcon.classList.add("hidden");
+  copyDoneIcon.classList.remove("hidden");
+  toastMessage.classList.add("show");
+  setTimeout(() => {
+    copyIcon.classList.remove("hidden");
+    copyDoneIcon.classList.add("hidden");
+    toastMessage.classList.remove("show");
+  }, 2000);
+}
