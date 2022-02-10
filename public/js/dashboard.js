@@ -28,16 +28,3 @@ profile.addEventListener("click", () => {
     profile.firstElementChild.classList.remove("visible");
   }
 });
-
-// development only remove later
-window.onload = function () {
-  if (typeof screen.orientation !== 'undefined') {
-    document.querySelector("body").style.visibility = "hidden"
-    setTimeout(() => {
-      alert("Dashboard for mobile device is currently under development. Please use a desktop device to access the dashboard.");
-      window.location.href = "/"
-    }, 800);
-  } else {
-    console.log("screen.orientation is supported");
-  }
-};

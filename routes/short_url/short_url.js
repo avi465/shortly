@@ -4,7 +4,7 @@ const urlSchema = require("../../database/model/url_model");
 
 const Url = urlSchema.Url;
 
-router.get("/su/:url", function (req, res) {
+router.get("/:url", function (req, res) {
     Url.findOne({ shortUrl: req.params.url }, function (err, data) {
         if (!err) {
             res.redirect(data.longUrl);

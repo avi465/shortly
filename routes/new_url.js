@@ -31,7 +31,7 @@ router.post("/", (function (req, res) {
 
                 url.save(function (err) {
                     if (!err) {
-                        res.send({"shortUrl": "http://localhost:3000/su/" + url.shortUrl});
+                        res.send({"shortUrl": "http://localhost:3000/" + url.shortUrl});
                     } else {
                         res.send(err);
                     }
@@ -48,8 +48,8 @@ router.post("/", (function (req, res) {
 
                     url.save(function (err) {
                         if (!err) {
-                            console.log("http://localhost:3000/su/" + url.shortUrl);
-                            res.send({"shortUrl": "http://localhost:3000/su/" + url.shortUrl});
+                            console.log("http://localhost:3000/" + url.shortUrl);
+                            res.send({"shortUrl": "http://localhost:3000/" + url.shortUrl});
                         } else {
                             res.send(err);
                         }
@@ -64,8 +64,8 @@ router.post("/", (function (req, res) {
 
                     url.save(function (err) {
                         if (!err) {
-                            console.log("http://localhost:3000/su/" + url.shortUrl);
-                            res.send({"shortUrl": "http://localhost:3000/su/" + url.shortUrl});
+                            console.log("http://localhost:3000/" + url.shortUrl);
+                            res.send({"shortUrl": "http://localhost:3000/" + url.shortUrl});
                         } else {
                             res.send(err);
                         }

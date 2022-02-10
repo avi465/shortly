@@ -77,9 +77,6 @@ app.use(mainRouter);
 // new url routers
 app.use(newurlRouter);
 
-// short url redirecting
-app.use(shortUrlRouter);
-
 // signin router
 app.use(signinRouter);
 
@@ -102,6 +99,9 @@ app.post("/api/url", (req, res) => {
     console.log(req.body);
     res.send(req.body);
 });
+
+// short url redirecting
+app.use(shortUrlRouter);
 
 // 404 error
 app.use(function (req, res) {
