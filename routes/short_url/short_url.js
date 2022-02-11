@@ -7,6 +7,7 @@ const Url = urlSchema.Url;
 router.get("/:url", function (req, res) {
     Url.findOne({ shortUrl: req.params.url }, function (err, data) {
         if (!err) {
+            console.log(data);
             res.redirect(data.longUrl);
         } else {
             res.send(err);

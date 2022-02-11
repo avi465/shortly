@@ -18,13 +18,14 @@ const urlSchema = new mongoose.Schema({
         required: true,
         default: 0
     },
-    email: String,
     date: {
         type: Date,
         default: Date.now
-    }
+    },
+    username: String,
+    userid: String,
 });
 
 const Url = mongoose.model("Url", urlSchema);
 
-module.exports = {urlSchema, Url};
+module.exports = { urlSchema, Url };

@@ -62,25 +62,30 @@
                         <div>
                             <div class="flex">
                                 <div>
-                                    <input name="longUrl" id="longUrl" placeholder="Enter long url"
-                                        class="border-2 outline-none border-indigo-600 rounded-md py-2 pl-4 pr-2 placeholder:font-medium placeholder:text-sm placeholder:text-gray-400">
-                                    <button
-                                        class=" mx-4 py-2 px-4 font-semibold border-2 border-indigo-400 bg-indigo-600 text-white text-sm rounded-md">Create
-                                        Url</button>
+                                    <form id="myForm">
+                                        <input name="longUrl" id="longUrl" placeholder="Enter long url" required
+                                            class="border-2 outline-0 rounded-md py-2 pl-4 pr-2 text-sm text-gray-600 placeholder:font-medium placeholder:text-sm placeholder:text-gray-400">
+                                        <button
+                                            class=" mr-2 ml-0 py-2 px-4 font-normal bg-indigo-600 text-white rounded-md">Create
+                                            Url</button>
+                                    </form>
                                 </div>
                                 <div id="profile"
                                     class="relative rounded-full h-10 w-10 bg-profile-avtar bg-cover bg-center border-stone-200 border-2">
                                     <!-- dropdown -->
                                     <div class="hidden origin-top-right absolute right-0 mt-12 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
                                         role="menu">
-                                        <div class="py-1" role="none">
+                                        <div class="py-1 font-medium" role="none">
                                             <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" -->
                                             <a href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem"
-                                                tabindex="-1" id="menu-item-0">Account settings</a>
+                                                tabindex="-1" id="menu-item-0">Profile</a>
+                                            <hr class="border-1 border-stone-200 bg-stone-200 my-1">
                                             <a href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem"
                                                 tabindex="-1" id="menu-item-1">Support</a>
+                                            <hr class="border-1 border-stone-200 bg-stone-200 my-1">
                                             <a href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem"
                                                 tabindex="-1" id="menu-item-2">License</a>
+                                            <hr class="border-1 border-stone-200 bg-stone-200 my-1">
                                             <a href="/logout" class="text-gray-700 block px-4 py-2 text-sm"
                                                 role="menuitem" tabindex="-1" id="menu-item-2">Logout</a>
                                         </div>
@@ -97,45 +102,43 @@
                     <div class="overflow-y-visible border-2 border-gray-200 rounded-md shadow">
                         <div class="py-4 pl-2">
                             <div class="grid grid-flow-row gap-2">
-
+                                <% urls.forEach(url => { %>
                                 <div class="">
                                     <label for="copy-box"
-                                        class="pl-8 my-0.5 block max-w-min rounded-md bg-white font-semibold text-sm text-stone-400">https://www.google.com/xyz...</label>
-                                    <input id="remember-me" name="remember-me" type="checkbox"
-                                        class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
-                                    <label for="remember-me" class="ml-2 inline-block text-sm text-gray-900">
-                                        <div
-                                            class="pl-1 inline-block bg-white border-2 border-violet-400 rounded-md shadow w-fit">
-                                            <input id="copy" type="text" value="https://www.short.ly/fs8d7s3fjt6"
-                                                disabled class="border-0 p-2 text-sm font-semibold text-gray-800">
-                                            <button onclick="copy()" id="copyicon" class=""><i
-                                                    class="fas fa-copy p-2 font-semibold text-gray-400 hover:text-gray-600"></i></button>
-                                            <button class="hidden" id="copydoneicon"><i
-                                                    class="fas fa-check-circle p-2 font-semibold text-green-600"></i></button>
+                                        class="pl-8 my-0.5 block rounded-md bg-white font-semibold text-sm text-stone-400"><%= url.longUrl %></label>
+                                    <div class="flex justify-between">
+                                        <div>
+                                            <input type="checkbox" id="remember-me"
+                                                class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
+                                            <label for="remember-me" class="ml-2 inline-block text-sm text-gray-900">
+                                                <div
+                                                    class="pl-1 inline-block bg-white border-2 rounded-md shadow-sm w-fit">
+                                                    <input id="copy" type="text"
+                                                        value="<%= url.shortUrl %>" disabled
+                                                        class="border-0 p-2 text-sm font-semibold text-gray-800">
+                                                    <button onclick="copy()" id="copyicon" class=""><i
+                                                            class="fas fa-copy p-2 font-semibold text-gray-400 hover:text-gray-500"></i></button>
+                                                    <button class="hidden" id="copydoneicon"><i
+                                                            class="fas fa-check-circle p-2 font-semibold text-green-600"></i></button>
+                                                </div>
                                         </div>
-                                </div>
-
-                                <hr class="border-1 border-stone-200 bg-stone-200 my-1">
-
-                                <div class="">
-                                    <label for="copy-box"
-                                        class="pl-8 my-0.5 block max-w-min rounded-md bg-white font-semibold text-sm text-stone-400">https://www.google.com/xyz...</label>
-                                    <input id="remember-me" name="remember-me" type="checkbox"
-                                        class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
-                                    <label for="remember-me" class="ml-2 inline-block text-sm text-gray-900">
-                                        <div
-                                            class="pl-1 inline-block bg-white border-2 border-violet-400 rounded-md shadow w-fit">
-                                            <input id="copy" type="text" value="https://www.short.ly/fs8d7s3fjt6"
-                                                disabled class="border-0 p-2 text-sm font-semibold text-gray-800">
-                                            <button onclick="copy()" id="copyicon" class=""><i
-                                                    class="fas fa-copy p-2 font-semibold text-gray-400 hover:text-gray-600"></i></button>
-                                            <button class="hidden" id="copydoneicon"><i
-                                                    class="fas fa-check-circle p-2 font-semibold text-green-600"></i></button>
+                                        <div class="pr-2">
+                                            <span
+                                                class=" shadow border p-2 rounded-md group hover:border-gray-200 hover:border-b-2 hover:border-r-2"><i
+                                                    class="fas fa-archive font-semibold text-sm text-gray-400 group-hover:text-gray-500"></i></span>
+                                            <a href="<%= url.shortUrl %>" target="_blank"
+                                                class=" shadow border p-2 rounded-md group hover:border-gray-200 hover:border-b-2 hover:border-r-2"><i
+                                                    class="fas fa-external-link-alt font-semibold text-sm text-gray-400 group-hover:text-gray-500"></i></a>
+                                            <span
+                                                class=" shadow border p-2 font-semibold text-sm text-gray-400 rounded-md group hover:border-gray-200 hover:border-b-2 hover:border-r-2 hover:text-gray-500"><%= url.clicks %><i
+                                                    class="fas fa-fingerprint ml-2 group-hover:text-gray-500"></i></span>
                                         </div>
+                                    </div>
                                 </div>
+                                <hr class="border-1 mr-2 border-stone-200 bg-stone-200 my-1">
+                                <% }) %>
+
                             </div>
-
-
                         </div>
                     </div>
                     <div class="bg-stone-100">

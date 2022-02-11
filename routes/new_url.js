@@ -8,67 +8,38 @@ base62_encoder();
 const tempmail = "";
 
 router.post("/", (function (req, res) {
-    
-    // TO DO: prevent creating short url if the url generated is same as application routes
-    //     Approach 1: we may create api for url generation
-    // long url string checking
-    let longUrl = "";
-    if (req.body.longUrl.includes("http://") || req.body.longUrl.includes("https://")) {
-        longUrl = req.body.longUrl;
-    } else {
-        longUrl = "http://" + req.body.longUrl;
-    }
-
+    let longUrl = req.body.longUrl;
     Url.find().countDocuments(function (err, count) {
         if (!err) {
             let counter = count;
-            console.log(counter);
             if (counter == 0) {
                 const url = new Url({
                     longUrl: "None",
                     shortUrl: "None"
                 })
-
                 url.save(function (err) {
-                    if (!err) {
-                        res.send({"shortUrl": "http://localhost:3000/" + url.shortUrl});
-                    } else {
-                        res.send(err);
-                    }
+                    (!err) ? res.send({ "shortUrl": "First index of database" }) : res.send(err);
                 })
 
             } else {
-                if (tempmail != "") {
-                    // short url generating and saving to database
+                // short url generating and saving to database
+                if (req.isAuthenticated()) {
                     const url = new Url({
                         longUrl: longUrl,
                         shortUrl: base62_encoder(counter),
-                        email: tempmail
+                        username: req.user.username,
+                        userid: req.user.id
                     })
-
                     url.save(function (err) {
-                        if (!err) {
-                            console.log("http://localhost:3000/" + url.shortUrl);
-                            res.send({"shortUrl": "http://localhost:3000/" + url.shortUrl});
-                        } else {
-                            res.send(err);
-                        }
+                        (!err) ? res.send({ "shortUrl": "http://localhost:3000/" + url.shortUrl }) : res.send(err);
                     })
                 } else {
-                    // short url generating and saving to database
                     const url = new Url({
                         longUrl: longUrl,
-                        shortUrl: base62_encoder(counter),
-                        email: null
+                        shortUrl: base62_encoder(counter)
                     })
-
                     url.save(function (err) {
-                        if (!err) {
-                            console.log("http://localhost:3000/" + url.shortUrl);
-                            res.send({"shortUrl": "http://localhost:3000/" + url.shortUrl});
-                        } else {
-                            res.send(err);
-                        }
+                        (!err) ? res.send({ "shortUrl": "http://localhost:3000/" + url.shortUrl }) : res.send(err);
                     })
                 }
             }

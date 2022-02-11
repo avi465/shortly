@@ -1,3 +1,38 @@
+// xhr form request
+const form = document.querySelector('#myForm');
+// const shortUrl = document.querySelector('#shortUrl');
+// const shortUrlDiv = document.querySelector('#shortUrlDiv');
+
+form.addEventListener('submit', (e) => {
+  const data = new FormData(form);
+  e.preventDefault();
+  fetch("/", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(
+      {
+        "longUrl": data.get('longUrl')
+      }
+    )
+  })
+    .then(res => res.json())
+
+    // .then(data => {
+    //   shortUrl.value = data.shortUrl;
+    //   shortUrlDiv.classList.remove("hidden");
+    //   let count = localStorage.getItem('count');
+    //   count++;
+    //   localStorage.setItem('count', count);
+    //   localStorage.setItem(count, data.shortUrl);
+    // })
+
+    .catch(err => console.log(err));
+}
+);
+
+
 // copy texts to clipboard
 function copy() {
   let copyText = document.querySelector("#copy");

@@ -104,7 +104,7 @@ app.post("/api/url", (req, res) => {
 app.use(shortUrlRouter);
 
 // 404 error
-app.use(function (req, res) {
+app.use(function (req, res, next) {
     res.status(400).send("404 error");
 });
 
