@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "build-css": "npx tailwindcss -i ./src/input.css -o ./public/css/output.css --watch",
-    "dev-start": "nodemon app.js"
+    "dev-start": "nodemon app.js",
+    "start": "node app.js"
   },
   "engines": {
     "node": "16.13.2"
