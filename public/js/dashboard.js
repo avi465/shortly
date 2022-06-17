@@ -1,7 +1,6 @@
 // xhr form request
 const form = document.querySelector('#myForm');
-// const shortUrl = document.querySelector('#shortUrl');
-// const shortUrlDiv = document.querySelector('#shortUrlDiv');
+// const longtUrl = document.querySelector('#longtUrl');
 
 form.addEventListener('submit', (e) => {
   const data = new FormData(form);
@@ -20,12 +19,7 @@ form.addEventListener('submit', (e) => {
     .then(res => res.json())
 
     // .then(data => {
-    //   shortUrl.value = data.shortUrl;
-    //   shortUrlDiv.classList.remove("hidden");
-    //   let count = localStorage.getItem('count');
-    //   count++;
-    //   localStorage.setItem('count', count);
-    //   localStorage.setItem(count, data.shortUrl);
+    //   console.log(data);
     // })
 
     .catch(err => console.log(err));

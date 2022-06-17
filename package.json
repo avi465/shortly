@@ -7,6 +7,9 @@
     "build-css": "npx tailwindcss -i ./src/input.css -o ./public/css/output.css --watch",
     "dev-start": "nodemon app.js"
   },
+  "engines": {
+    "node": "16.13.2"
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {
@@ -19,7 +22,7 @@
     "express-session": "^1.17.2",
     "mongoose": "^6.2.0",
     "mongoose-findorcreate": "^3.0.0",
-    "nodemon": "^2.0.15",
+    "nodemon": "^2.0.16",
     "passport": "^0.5.2",
     "passport-facebook": "^3.0.0",
     "passport-google-oauth2": "^0.2.0",
