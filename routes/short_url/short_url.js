@@ -8,7 +8,11 @@ router.get("/:url", function (req, res) {
     Url.findOne({ shortUrl: req.params.url }, function (err, data) {
         if (!err) {
             console.log(data);
-            res.redirect(data.longUrl);
+            if (data != null) {
+                res.redirect(data.longUrl);
+            } else {
+                res.send("URL not found");
+            }
         } else {
             res.send(err);
         }

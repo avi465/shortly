@@ -31,7 +31,7 @@ router.post("/", (function (req, res) {
                         userid: req.user.id
                     })
                     url.save(function (err) {
-                        (!err) ? res.send({ "shortUrl": "http://localhost:3000/" + url.shortUrl }) : res.send(err);
+                        (!err) ? res.send({ "shortUrl": process.env.ROOT_URL + url.shortUrl }) : res.send(err);
                     })
                 } else {
                     const url = new Url({
@@ -39,7 +39,7 @@ router.post("/", (function (req, res) {
                         shortUrl: base62_encoder(counter)
                     })
                     url.save(function (err) {
-                        (!err) ? res.send({ "shortUrl": "http://localhost:3000/" + url.shortUrl }) : res.send(err);
+                        (!err) ? res.send({ "shortUrl": process.env.ROOT_URL + url.shortUrl }) : res.send(err);
                     })
                 }
             }
