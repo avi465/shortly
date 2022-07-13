@@ -58,14 +58,14 @@ npm run start
 
 ## Features
 
-- [x] Landing page \
-- [] Dashboard\
-- [] Responsive\
-- [x] Shorten Url\
-- [] Statistics\
-- [] Analytics\
-- [x] Signin/signup\
-- [] Profile
+- [x] Landing page
+- [ ] Dashboard
+- [ ] Responsive
+- [x] Shorten Url
+- [ ] Statistics
+- [ ] Analytics
+- [x] Signin/signup
+- [ ] Profile
 
 ## Authors
 
