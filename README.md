@@ -2,7 +2,7 @@
 <p align = "center">Shortly is a url shortner website which help you to create shortened version of your complex long urls and manage them.
 It provides detailed statistics of url access.</p>
 
-![App Screenshot](https://github.com/avi465/shortly/blob/master/screenshot/landing-page.png)
+![App Screenshot](https://github.com/avi465/shortly/blob/main/screenshot/landing-page.png)
 
 
 ## Tech Stack
