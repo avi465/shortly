@@ -784,10 +784,6 @@ select{
   margin-top: 2rem;
 }
 
-.mt-6{
-  margin-top: 1.5rem;
-}
-
 .block{
   display: block;
 }
@@ -908,12 +904,6 @@ select{
 
 .max-w-7xl{
   max-width: 80rem;
-}
-
-.max-w-min{
-  max-width: -webkit-min-content;
-  max-width: -moz-min-content;
-  max-width: min-content;
 }
 
 .max-w-sm{
@@ -1048,12 +1038,6 @@ select{
   margin-bottom: calc(1.5rem * var(--tw-space-y-reverse));
 }
 
-.space-y-8 > :not([hidden]) ~ :not([hidden]){
-  --tw-space-y-reverse: 0;
-  margin-top: calc(2rem * calc(1 - var(--tw-space-y-reverse)));
-  margin-bottom: calc(2rem * var(--tw-space-y-reverse));
-}
-
 .-space-y-px > :not([hidden]) ~ :not([hidden]){
   --tw-space-y-reverse: 0;
   margin-top: calc(-1px * calc(1 - var(--tw-space-y-reverse)));
@@ -1062,10 +1046,6 @@ select{
 
 .overflow-y-auto{
   overflow-y: auto;
-}
-
-.overflow-y-visible{
-  overflow-y: visible;
 }
 
 .truncate{
@@ -1143,11 +1123,6 @@ select{
 .border-gray-900{
   --tw-border-opacity: 1;
   border-color: rgb(17 24 39 / var(--tw-border-opacity));
-}
-
-.border-violet-400{
-  --tw-border-opacity: 1;
-  border-color: rgb(167 139 250 / var(--tw-border-opacity));
 }
 
 .border-gray-100{
@@ -1330,6 +1305,11 @@ select{
   padding-right: 1.5rem;
 }
 
+.py-8{
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
 .pl-4{
   padding-left: 1rem;
 }
@@ -1414,11 +1394,6 @@ select{
 .text-xl{
   font-size: 1.25rem;
   line-height: 1.75rem;
-}
-
-.text-6xl{
-  font-size: 3.75rem;
-  line-height: 1;
 }
 
 .text-3xl{
@@ -1522,11 +1497,6 @@ select{
 .text-indigo-400{
   --tw-text-opacity: 1;
   color: rgb(129 140 248 / var(--tw-text-opacity));
-}
-
-.text-stone-200{
-  --tw-text-opacity: 1;
-  color: rgb(231 229 228 / var(--tw-text-opacity));
 }
 
 .text-indigo-500{
