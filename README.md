@@ -58,15 +58,14 @@ npm run start
 
 ## Features
 
-<input type="checkbox" disabled checked/> Landing page \
-<input type="checkbox" disabled /> Dashboard\
-<input type="checkbox" disabled /> Responsive\
-<input type="checkbox" disabled checked/> Shorten Url\
-<input type="checkbox" disabled /> Statistics\
-<input type="checkbox" disabled /> Analytics\
-<input type="checkbox" disabled checked/> Signin/signup\
-<input type="checkbox" disabled /> Profile
-
+- [x] Landing page \
+- [] Dashboard\
+- [] Responsive\
+- [x] Shorten Url\
+- [] Statistics\
+- [] Analytics\
+- [x] Signin/signup\
+- [] Profile
 
 ## Authors
 
