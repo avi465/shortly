@@ -1,10 +1,17 @@
 const burger = document.querySelector("#burger");
-const menu = document.querySelector("#mobile-menu");
-const headerbannerX = document.querySelector("#headerbannerx");
-const headerbanner = document.querySelector("#headerbanner");
-
 burger.addEventListener("click", () => {
+  hamburgerMenu();
+});
+// Headerbanner x
+const headerbannerX = document.querySelector("#headerbannerx");
+headerbannerX.addEventListener("click", () => {
+  const headerbanner = document.querySelector("#headerbanner");
+  headerbanner.classList.add("hidden");
+});
+
+function hamburgerMenu() {
   // menu toggle
+  const menu = document.querySelector("#mobile-menu");
   if (menu.classList.contains("sm:hidden")) {
     menu.classList.remove("sm:hidden");
     menu.classList.add("hidden");
@@ -24,46 +31,7 @@ burger.addEventListener("click", () => {
     burger.children[0].children[2].classList.remove("hidden");
     burger.children[0].children[2].classList.add("block");
   }
-});
-
-// Headerbanner x
-headerbannerX.addEventListener("click", () => {
-  headerbanner.classList.add("hidden");
-});
-
-// xhr form request
-const form = document.querySelector('#myForm');
-const shortUrl = document.querySelector('#shortUrl');
-const shortUrlDiv = document.querySelector('#shortUrlDiv');
-
-form.addEventListener('submit', (e) => {
-  const data = new FormData(form);
-  e.preventDefault();
-  fetch("/", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(
-      {
-        "longUrl": data.get('longUrl')
-      }
-    )
-  })
-    .then(res => res.json())
-
-    .then(data => {
-      shortUrl.value = data.shortUrl;
-      shortUrlDiv.classList.remove("hidden");
-      let count = localStorage.getItem('count');
-      count++;
-      localStorage.setItem('count', count);
-      localStorage.setItem(count, data.shortUrl);
-    })
-
-    .catch(err => console.log(err));
 }
-);
 
 // function copy() {
 //   let copyText = document.querySelector("#shortUrl");
@@ -82,3 +50,74 @@ form.addEventListener('submit', (e) => {
 //     toastMessage.classList.remove("show");
 //   }, 2000);
 // }
+
+
+// xhr request to get short urls
+const form = document.querySelector('#myForm');
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  getShortUrl();
+});
+
+function getShortUrl() {
+  const formData = new FormData(form);
+  fetch("/", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ "longUrl": formData.get('longUrl') })
+  })
+    .then(res => res.json())
+    .then(data => {
+      const shortUrl = document.querySelector('#shortUrl');
+      shortUrl.value = data.shortUrl;
+      const shortUrlDiv = document.querySelector('#shortUrlDiv');
+      shortUrlDiv.classList.remove("hidden");
+      // calling handleLocalStorage function
+      handleLocalStorage(data);
+    })
+    .catch(err => console.log(err));
+}
+
+function handleLocalStorage(data) {
+  const longUrl = document.querySelector('#longUrl');
+  let localUrls = [];
+  if (localStorage.getItem("urls") != null) {
+    localUrls = JSON.parse(localStorage.getItem("urls"));
+  }
+  localUrls.push({
+    "id": localUrls.length,
+    "longUrl": longUrl.value,
+    "shortUrl": data.shortUrl,
+  });
+  localStorage.setItem("urls", JSON.stringify(localUrls));
+  // calling handleRecentUrls function
+  handleRecentUrls();
+}
+
+function handleRecentUrls() {
+  if (localStorage.getItem("urls") !== null) {
+    let urls = JSON.parse(localStorage.getItem("urls"));
+    let recentUrlContainer = document.querySelector('#recent-url-container');
+    recentUrlContainer.classList.remove("hidden");
+    let recentUrls = document.querySelector('#recent-urls');
+    if (recentUrls.hasChildNodes) {
+      while (recentUrls.childNodes.length) {
+        recentUrls.removeChild(recentUrls.firstChild);
+      }
+    }
+    let recentUrlsList = document.createElement('ul');
+    recentUrlsList.classList.add('list-none');
+    recentUrls.appendChild(recentUrlsList);
+    urls.forEach(url => {
+      let recentUrlsListItem = document.createElement('li');
+      recentUrlsListItem.classList.add('list-none__item');
+      recentUrlsList.appendChild(recentUrlsListItem);
+      let recentUrlsListItemLink = document.createElement('a');
+      recentUrlsListItemLink.href = url.shortUrl;
+      recentUrlsListItemLink.innerHTML = url.shortUrl;
+      recentUrlsListItem.appendChild(recentUrlsListItemLink);
+    });
+  }
+}
+
+handleRecentUrls();
