@@ -112,6 +112,9 @@ function handleRecentUrls() {
       let recentUrlsListItem = document.createElement('li');
       recentUrlsListItem.classList.add('list-none__item');
       recentUrlsList.appendChild(recentUrlsListItem);
+      let recentUrlsListItemUrl = document.createElement('p');
+      recentUrlsListItemUrl.innerHTML = url.longUrl;
+      recentUrlsListItem.appendChild(recentUrlsListItemUrl);
       let recentUrlsListItemLink = document.createElement('a');
       recentUrlsListItemLink.href = url.shortUrl;
       recentUrlsListItemLink.innerHTML = url.shortUrl;

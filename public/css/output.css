@@ -848,8 +848,18 @@ select{
   height: 4rem;
 }
 
+.h-fit{
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
 .max-h-\[calc\(100vh-64px\)\]{
   max-height: calc(100vh - 64px);
+}
+
+.max-h-96{
+  max-height: 24rem;
 }
 
 .min-h-full{
@@ -1048,6 +1058,10 @@ select{
   overflow-y: auto;
 }
 
+.overflow-y-scroll{
+  overflow-y: scroll;
+}
+
 .truncate{
   overflow: hidden;
   text-overflow: ellipsis;
@@ -1195,9 +1209,9 @@ select{
   background-color: rgb(37 99 235 / var(--tw-bg-opacity));
 }
 
-.bg-blue-50{
+.bg-slate-50{
   --tw-bg-opacity: 1;
-  background-color: rgb(239 246 255 / var(--tw-bg-opacity));
+  background-color: rgb(248 250 252 / var(--tw-bg-opacity));
 }
 
 .bg-emerald-600{
@@ -1213,6 +1227,11 @@ select{
 .bg-blue-700{
   --tw-bg-opacity: 1;
   background-color: rgb(29 78 216 / var(--tw-bg-opacity));
+}
+
+.bg-blue-50{
+  --tw-bg-opacity: 1;
+  background-color: rgb(239 246 255 / var(--tw-bg-opacity));
 }
 
 .bg-profile-avtar{
@@ -1758,6 +1777,11 @@ select{
 .focus\:ring-indigo-500:focus{
   --tw-ring-opacity: 1;
   --tw-ring-color: rgb(99 102 241 / var(--tw-ring-opacity));
+}
+
+.focus\:ring-indigo-50:focus{
+  --tw-ring-opacity: 1;
+  --tw-ring-color: rgb(238 242 255 / var(--tw-ring-opacity));
 }
 
 .focus\:ring-offset-2:focus{
