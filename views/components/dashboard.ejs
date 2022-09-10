@@ -12,18 +12,18 @@
                 <!-- menu -->
                 <div class="grid grid-flow-row max-h-[calc(100vh-64px)] overflow-y-auto">
                     <!-- menu item -->
-                    <div class="flex my-1 hover:bg-gray-200 focus:text-white pl-4 sm:pl-6 lg:pl-8">
-                        <h1 class="py-2 font-semibold text-gray-600">
+                    <div class="flex my-1 hover:bg-gray-200 bg-gray-200 focus:text-white pl-4 sm:pl-6 lg:pl-8">
+                        <h1 class="py-2 font-semibold text-blue-600">
                             <i class="fas fa-user pr-2"></i>My Urls
                         </h1>
                     </div>
                     <div class="flex my-1 hover:bg-gray-200 focus:text-white pl-4 sm:pl-6 lg:pl-8">
-                        <h1 class="py-2 font-semibold text-gray-600">
+                        <h1 class="py-2 font-semibold text-blue-600">
                             <i class="fas fa-archive pr-2"></i>Archived
                         </h1>
                     </div>
                     <div class="flex my-1 hover:bg-gray-200 focus:text-white pl-4 sm:pl-6 lg:pl-8">
-                        <h1 class="py-2 font-semibold text-gray-600">
+                        <h1 class="py-2 font-semibold text-blue-600">
                             <i class="fas fa-clipboard pr-2"></i>Clipboard
                         </h1>
                     </div>
@@ -32,14 +32,14 @@
                         <hr class="border-1 border-stone-300 bg-stone-300 my-1">
                     </div>
 
-                    <div class="flex my-1 hover:bg-indigo-100 pl-4 sm:pl-6 lg:pl-8">
-                        <h1 class="py-2 font-semibold text-gray-600">
+                    <div class="flex my-1 hover:bg-gray-200 pl-4 sm:pl-6 lg:pl-8">
+                        <h1 class="py-2 font-semibold text-green-600">
                             <i class="fab fa-github pr-2"></i>Github
                         </h1>
                     </div>
-                    <div class="flex my-1 hover:bg-indigo-100 pl-4 sm:pl-6 lg:pl-8">
-                        <h1 class="py-2 font-semibold text-gray-600">
-                            <i class="fas fa-donate pr-2"></i>Contribute
+                    <div class="flex my-1 hover:bg-gray-200 pl-4 sm:pl-6 lg:pl-8">
+                        <h1 class="py-2 font-semibold text-green-600">
+                            <i class="fas fa-donate pr-2"></i>Support
                         </h1>
                     </div>
                 </div>
@@ -59,7 +59,7 @@
                                 <div>
                                     <form id="myForm" class="">
                                         <input name="longUrl" id="longUrl" placeholder="Enter long url" required
-                                            class="border-2 outline-0 rounded-md py-2 pl-4 pr-2 text-sm text-gray-600 placeholder:font-medium placeholder:text-sm placeholder:text-gray-400">
+                                            class="border-2 border-indigo-400 outline-0 rounded-md py-2 pl-4 pr-2 text-sm text-gray-600 placeholder:font-medium placeholder:text-sm placeholder:text-gray-400">
                                         <button
                                             class="mr-2 ml-0 py-2 px-4 font-bold border-2 border-indigo-400 bg-indigo-600 text-sm text-white rounded-md">
                                             CreateUrl
@@ -90,13 +90,13 @@
                 </div>
                 <!-- main section -->
                 <div class="grid grid-cols-2 gap-1">
-                    <div class="border-2 border-gray-200 rounded-md shadow h-[calc(100vh-64px)] overflow-y-auto">
+                    <div class="px-4 border-2 border-gray-200 rounded-md shadow h-[calc(100vh-64px)] overflow-y-auto">
                         <div class="py-4 pl-2">
                             <div class="grid grid-flow-row gap-2">
                                 <% urls.forEach(url=> { %>
                                     <div class="">
                                         <label for="copy-box"
-                                            class="pl-8 my-0.5 block rounded-md bg-white font-semibold text-sm text-stone-400">
+                                            class="pl-8 my-0.5 block rounded-md bg-white text-sm text-stone-400">
                                             <%= url.longUrl %>
                                         </label>
                                         <div class="flex justify-between">
@@ -106,25 +106,20 @@
                                                 <label for="remember-me"
                                                     class="ml-2 inline-block text-sm text-gray-900">
                                                     <div
-                                                        class="pl-1 inline-block bg-white border-2 rounded-md shadow-sm w-fit">
-                                                        <input id="copy" type="text" value="<%= url.shortUrl %>"
-                                                            disabled
-                                                            class="border-0 p-2 text-sm font-semibold text-gray-800">
-                                                        <button onclick="copy()" id="copyicon" class=""><i
-                                                                class="fas fa-copy p-2 font-semibold text-gray-400 hover:text-gray-500"></i></button>
-                                                        <button class="hidden" id="copydoneicon"><i
-                                                                class="fas fa-check-circle p-2 font-semibold text-green-600"></i></button>
+                                                        class="pl-1 inline-block w-full">
+                                                        <p id="copy" class="border-0 p-2 text-sm"><%= url.shortUrl %></p>
                                                     </div>
                                             </div>
                                             <div class="pr-2">
-                                                <span
-                                                    class=" shadow border p-2 rounded-md group hover:border-gray-200 hover:border-b-2 hover:border-r-2"><i
-                                                        class="fas fa-archive font-semibold text-sm text-gray-400 group-hover:text-gray-500"></i></span>
+                                                <!-- <button onclick="copy()" id="copyicon" class=""><i
+                                                        class="fas fa-copy p-2 text-gray-400 hover:text-gray-500"></i></button>
+                                                <button class="hidden" id="copydoneicon"><i
+                                                        class="fas fa-check-circle p-2 text-green-600"></i></button> -->
                                                 <a href="<%= url.shortUrl %>" target="_blank"
                                                     class=" shadow border p-2 rounded-md group hover:border-gray-200 hover:border-b-2 hover:border-r-2"><i
-                                                        class="fas fa-external-link-alt font-semibold text-sm text-gray-400 group-hover:text-gray-500"></i></a>
+                                                        class="fas fa-external-link-alt text-sm text-gray-400 group-hover:text-gray-500"></i></a>
                                                 <span
-                                                    class=" shadow border p-2 font-semibold text-sm text-gray-400 rounded-md group hover:border-gray-200 hover:border-b-2 hover:border-r-2 hover:text-gray-500">
+                                                    class=" shadow border p-2 text-sm text-gray-400 rounded-md group hover:border-gray-200 hover:border-b-2 hover:border-r-2 hover:text-gray-500">
                                                     <%= url.clicks %><i
                                                             class="fas fa-fingerprint ml-2 group-hover:text-gray-500"></i>
                                                 </span>
@@ -140,8 +135,8 @@
                     <div class="bg-stone-100">
                         <div class="pr-4 sm:pr-6 lg:pr-8">
                             <div
-                                class="py-4 px-2 rounded-md shadow border-2 border-gray-200  h-[calc(100vh-64px)] overflow-y-auto">
-                                Here you can see your shortened urls.
+                                class="py-4 px-4 rounded-md shadow border-2 border-gray-200  h-[calc(100vh-64px)] overflow-y-auto">
+                                Statistics
                             </div>
                         </div>
                     </div>
@@ -151,29 +146,8 @@
     </div>
 </div>
 
-<!-- <div class="backdrop-blur-sm bg-stone-900 opacity-80 w-full h-full fixed top-0 left-0">
-    <div
-        class="w-11/12 sm:w-4/5 md:w-3/4 lg:w-1/2 h-1/2 bg-gray-600 backdrop-blur-sm shadow-2xl rounded-md border-2 border-gray-900  absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-        <div>
-            <div class="text-right py-4 px-4">
-                <button class="rounded-md bg-slate-800 h-8 w-8"><i class="fas fa-times bg-gray-800 text-white"></i></button>
-            </div>
-            <div class="px-4 sm:px-6 md:px-8 lg:px-12">
-                <div class="py-2">
-                    <label for="longUrl" class="font-semibold text-sm text-gray-600 py-1 block">Enter the long
-                        url</label>
-                    <input type="url" name="longUrl" required id="longUrl" placeholder="https://example.com"
-                        class="py2 appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm placeholder:text-sm placeholder:font-semibold placeholder:text-gray-400">
-                </div>
-                <button type="submit"
-                    class="my-2 border-2 font-semibold text-sm rounded-md block w-full py-2 px-4 border-transparent text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Shorten
-                </button>
-            </div>
-        </div>
-    </div>
-</div> -->
-<!-- 
-<button class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+<!-- Loading animation -->
+<!-- <button class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
     <svg class="animate-spin h-5 w-5" viewBox="0 0 24 24">
         <path class="opacity-75" fill="currentColor"
             d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
