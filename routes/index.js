@@ -11,8 +11,14 @@ router.get("/blogs", function (req, res) {
 });
 
 router.get("/logout", function (req, res) {
-    req.logout();
-    res.redirect("/");
-  });
+    req.logout(function (err) {
+        if (err) {
+            // handle error
+            console.error(err);
+            return;
+        }
+        res.redirect("/");
+    });
+});
 
 module.exports = router;
