@@ -6,7 +6,7 @@
                 <!-- brand logo -->
                 <div class="py-4 text-2xl font-extrabold pl-4 sm:pl-6 lg:pl-8">
                     <a href="/">
-                        <h1>Shortly</h1>
+                        <img class="block h-8 w-auto" src="/img/logo.svg" alt="Logo">
                     </a>
                 </div>
                 <!-- menu -->
@@ -105,9 +105,10 @@
                                                     class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
                                                 <label for="remember-me"
                                                     class="ml-2 inline-block text-sm text-gray-900">
-                                                    <div
-                                                        class="pl-1 inline-block w-full">
-                                                        <p id="copy" class="border-0 p-2 text-sm"><%= url.shortUrl %></p>
+                                                    <div class="pl-1 inline-block w-full">
+                                                        <p id="copy" class="border-0 p-2 text-sm">
+                                                            <%= url.shortUrl %>
+                                                        </p>
                                                     </div>
                                             </div>
                                             <div class="pr-2">

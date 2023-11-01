@@ -1,7 +1,7 @@
 <div class="py-12">
     <div class="h-gutter py-4">
-        <div class="bg-slate-50 grid grid-cols-1 sm:grid-flow-col sm:grid-cols-2 lg:grid-cols-3 gap-2">
-            <form id="myForm" class="px-4 py-6 space-y-6 rounded-md shadow h-fit">
+        <div class="bg-neutral-50 grid grid-cols-1 sm:grid-flow-col sm:grid-cols-2 lg:grid-cols-3 gap-2">
+            <form id="myForm" class="px-4 py-6 space-y-6 h-fit">
                 <div class="relative pb-12">
                     <h1 class="-rotate-3 font-extrabold text-4xl text-gray-400 block font-comforter">Your url, your
                         way:)</h1>
@@ -13,10 +13,10 @@
                         Shorten link</h1>
                 </div>
                 <div>
-                    <label for="longUrl" class="text-sm text-gray-600 py-1 block">Enter the long
+                    <label for="longUrl" class="text-sm font-medium text-neutral-500 py-1 block">Enter the long
                         url</label>
                     <input type="url" name="longUrl" required id="longUrl" placeholder="https://example.com"
-                        class="py2 appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 focus:outline-none focus:ring-indigo-50 focus:border-indigo-500 sm:text-sm placeholder:text-sm placeholder:text-gray-400">
+                        class="text-sm font-medium text-neutral-600 appearance-none rounded-md relative block w-full px-3 py-2 border border-neutral-200 focus:outline-none focus:ring-neutral-50 focus:border-neutral-300 sm:text-sm placeholder:text-sm placeholder:font-medium placeholder:text-neutral-400">
                 </div>
 
                 <div id="shortUrlDiv" class="hidden">
@@ -49,17 +49,19 @@
                 </div>
 
                 <button type="submit"
-                    class="border-2 text-sm rounded-md block w-full py-2 px-4 border-transparent text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Shorten
+                    class="border-2 text-sm rounded-md block w-full py-2 px-4 border-transparent text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Generate
+                    Link
                 </button>
 
                 <div>
-                    <h1 class="text-sm text-gray-400">By continuing you agree to <a
-                            class="text-indigo-400">terms & policies</a></h1>
+                    <h1 class="text-sm text-gray-400">By continuing you agree to <a class="text-indigo-400">terms &
+                            policies</a></h1>
                 </div>
             </form>
             <!-- url data element -->
-            <div id="recent-url-container" class="sm:col-span-1 lg:col-span-2 bg-white px-4 hidden sm:block rounded-md shadow overflow-y-scroll max-h-96">
-                <div class="rounded-md px-6 py-3 shadow-sm">
+            <div id="recent-url-container"
+                class="sm:col-span-1 lg:col-span-2 bg-white px-4 hidden sm:block overflow-y-scroll max-h-96">
+                <div class="px-6 py-3">
                     <h1 class="text-4xl font-semibold text-stone-400 text-center font-comforter">Your recent urls</h1>
                 </div>
                 <div id="recent-urls"></div>

@@ -8,7 +8,6 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        "hero-pattern": "url('/img/login-bg.jpg')",
         "profile-avtar": "url('/img/profile.jpg')",
       },
       fontFamily: {

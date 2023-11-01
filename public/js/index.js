@@ -112,13 +112,21 @@ function handleRecentUrls() {
       let recentUrlsListItem = document.createElement('li');
       recentUrlsListItem.classList.add('list-none__item');
       recentUrlsList.appendChild(recentUrlsListItem);
-      let recentUrlsListItemUrl = document.createElement('p');
-      recentUrlsListItemUrl.innerHTML = url.longUrl;
-      recentUrlsListItem.appendChild(recentUrlsListItemUrl);
+
+      // appending elements to list item
+      let recentUrlsListItemTitle = document.createElement('h3');
+      recentUrlsListItemTitle.innerHTML = url.title || "No title";
+      recentUrlsListItem.appendChild(recentUrlsListItemTitle);
+
       let recentUrlsListItemLink = document.createElement('a');
       recentUrlsListItemLink.href = url.shortUrl;
       recentUrlsListItemLink.innerHTML = url.shortUrl;
       recentUrlsListItem.appendChild(recentUrlsListItemLink);
+
+      let recentUrlsListItemUrl = document.createElement('p');
+      recentUrlsListItemUrl.innerHTML = url.longUrl;
+      recentUrlsListItem.appendChild(recentUrlsListItemUrl);
+
     });
   }
 }
