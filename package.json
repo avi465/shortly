@@ -1,5 +1,5 @@
 {
-  "name": "tinyurl",
+  "name": "sizzle",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
@@ -24,7 +24,7 @@
     "mongoose": "^6.2.0",
     "mongoose-findorcreate": "^3.0.0",
     "nodemon": "^2.0.16",
-    "passport": "^0.5.2",
+    "passport": "^0.6.0",
     "passport-facebook": "^3.0.0",
     "passport-google-oauth2": "^0.2.0",
     "passport-local": "^1.0.0",

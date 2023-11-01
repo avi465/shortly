@@ -1,8 +1,10 @@
-<h1 align = "center">Shortly</h1>
-<p align = "center">Shortly is a url shortner website which help you to create shortened version of your complex long urls and manage them.
+<h1>Shortly</h1>
+<p>Shortly is a url shortner website which help you to create shortened version of your complex long urls and manage them.
 It provides detailed statistics of url access.</p>
 
-![App Screenshot](https://github.com/avi465/shortly/blob/main/screenshot/landing-page.png)
+## Screenshot
+<!--- ![App Screenshot](https://github.com/avi465/shortly/blob/main/screenshot/landing-page.png) -->
+<img width="960" alt="landing-page" src="https://user-images.githubusercontent.com/63386918/212108223-c6cb65cf-5fcd-4f54-92ee-11cc699a73b4.png">
 
 
 ## Tech Stack
@@ -59,13 +61,14 @@ npm run start
 ## Features
 
 - [x] Landing page
-- [ ] Dashboard
-- [ ] Responsive
 - [x] Shorten Url
+- [x] Signin/signup
+- [ ] Dashboard
+- [ ] Fully Responsive
+- [ ] Profile Page
 - [ ] Statistics
 - [ ] Analytics
-- [x] Signin/signup
-- [ ] Profile
+
 
 ## Authors
 
