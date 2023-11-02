@@ -3,8 +3,7 @@
 It provides detailed statistics of url access.</p>
 
 ## Screenshot
-<!--- ![App Screenshot](https://github.com/avi465/shortly/blob/main/screenshot/landing-page.png) -->
-<img width="960" alt="landing-page" src="https://user-images.githubusercontent.com/63386918/212108223-c6cb65cf-5fcd-4f54-92ee-11cc699a73b4.png">
+<img width="960" alt="Screenshot 2023-10-28 042515" src="https://github.com/avi465/shortly/assets/63386918/fc932c63-4033-424b-ba79-86ebde5bec1b">
 
 
 ## Tech Stack
