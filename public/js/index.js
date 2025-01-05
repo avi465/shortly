@@ -68,10 +68,9 @@ function getShortUrl() {
   })
     .then(res => res.json())
     .then(data => {
-      const shortUrl = document.querySelector('#shortUrl');
-      shortUrl.value = data.shortUrl;
-      const shortUrlDiv = document.querySelector('#shortUrlDiv');
-      shortUrlDiv.classList.remove("hidden");
+      const urlField = document.querySelector('#longUrl');
+      urlField.value = data.shortUrl;
+      urlField.style.color = "#059669";
       // calling handleLocalStorage function
       handleLocalStorage(data);
     })
@@ -94,41 +93,119 @@ function handleLocalStorage(data) {
   handleRecentUrls();
 }
 
+// function handleRecentUrls() {
+//   if (localStorage.getItem("urls") !== null) {
+//     let urls = JSON.parse(localStorage.getItem("urls"));
+//     let recentUrlContainer = document.querySelector('#recent-url-container');
+//     recentUrlContainer.classList.remove("hidden");
+//     let recentUrls = document.querySelector('#recent-urls');
+//     if (recentUrls.hasChildNodes) {
+//       while (recentUrls.childNodes.length) {
+//         recentUrls.removeChild(recentUrls.firstChild);
+//       }
+//     }
+//     let recentUrlsList = document.createElement('ul');
+//     recentUrlsList.classList.add('list-none');
+//     recentUrls.appendChild(recentUrlsList);
+//     urls.forEach(url => {
+//       let recentUrlsListItem = document.createElement('li');
+//       recentUrlsListItem.classList.add('list-none__item');
+//       recentUrlsList.appendChild(recentUrlsListItem);
+
+//       // appending elements to list item
+//       let recentUrlsListItemTitle = document.createElement('h3');
+//       recentUrlsListItemTitle.innerHTML = url.title || "No title";
+//       recentUrlsListItem.appendChild(recentUrlsListItemTitle);
+
+//       let recentUrlsListItemLink = document.createElement('a');
+//       recentUrlsListItemLink.href = url.shortUrl;
+//       recentUrlsListItemLink.innerHTML = url.shortUrl;
+//       recentUrlsListItem.appendChild(recentUrlsListItemLink);
+
+//       let recentUrlsListItemUrl = document.createElement('p');
+//       recentUrlsListItemUrl.innerHTML = url.longUrl;
+//       recentUrlsListItem.appendChild(recentUrlsListItemUrl);
+
+//     });
+//   }
+// }
+
 function handleRecentUrls() {
   if (localStorage.getItem("urls") !== null) {
     let urls = JSON.parse(localStorage.getItem("urls"));
     let recentUrlContainer = document.querySelector('#recent-url-container');
     recentUrlContainer.classList.remove("hidden");
     let recentUrls = document.querySelector('#recent-urls');
-    if (recentUrls.hasChildNodes) {
-      while (recentUrls.childNodes.length) {
-        recentUrls.removeChild(recentUrls.firstChild);
-      }
+
+    // Clear existing child nodes
+    while (recentUrls.firstChild) {
+      recentUrls.removeChild(recentUrls.firstChild);
     }
-    let recentUrlsList = document.createElement('ul');
-    recentUrlsList.classList.add('list-none');
-    recentUrls.appendChild(recentUrlsList);
-    urls.forEach(url => {
-      let recentUrlsListItem = document.createElement('li');
-      recentUrlsListItem.classList.add('list-none__item');
-      recentUrlsList.appendChild(recentUrlsListItem);
 
-      // appending elements to list item
-      let recentUrlsListItemTitle = document.createElement('h3');
-      recentUrlsListItemTitle.innerHTML = url.title || "No title";
-      recentUrlsListItem.appendChild(recentUrlsListItemTitle);
-
-      let recentUrlsListItemLink = document.createElement('a');
-      recentUrlsListItemLink.href = url.shortUrl;
-      recentUrlsListItemLink.innerHTML = url.shortUrl;
-      recentUrlsListItem.appendChild(recentUrlsListItemLink);
-
-      let recentUrlsListItemUrl = document.createElement('p');
-      recentUrlsListItemUrl.innerHTML = url.longUrl;
-      recentUrlsListItem.appendChild(recentUrlsListItemUrl);
-
-    });
+    // Render only one URL in the form container
+    if (urls.length > 0) {
+      let firstUrl = urls[urls.length - 1]; // Display the most recent URL
+      let listItem = createUrlListItem(firstUrl);
+      recentUrls.appendChild(listItem);
+    }
   }
 }
+
+// Helper function to create a URL list item
+function createUrlListItem(url) {
+  let listItem = document.createElement('div');
+  listItem.classList.add('list-none__item');
+  let title = document.createElement('h3');
+  title.innerHTML = url.title || "No title";
+  listItem.appendChild(title);
+
+  let link = document.createElement('a');
+  link.href = url.shortUrl;
+  link.innerHTML = url.shortUrl;
+  listItem.appendChild(link);
+
+  let longUrl = document.createElement('p');
+  longUrl.innerHTML = url.longUrl;
+  listItem.appendChild(longUrl);
+
+  return listItem;
+}
+
+// Handle "See More" link click
+document.querySelector('#seeMoreLink').addEventListener('click', function (event) {
+  event.preventDefault(); // Prevent default link behavior
+
+  if (localStorage.getItem("urls") !== null) {
+    let urls = JSON.parse(localStorage.getItem("urls")).reverse(); // Reverse the order
+
+    let popover = document.createElement('div');
+    popover.classList.add('fixed', 'inset-0', 'bg-gray-800', 'bg-opacity-75', 'flex', 'justify-center', 'items-center', 'z-50');
+
+    let content = document.createElement('div');
+    content.classList.add('bg-white', 'p-6', 'rounded', 'shadow-lg', 'w-96', 'max-h-[75vh]', 'overflow-y-auto', 'relative');
+    popover.appendChild(content);
+
+    // Close button
+    let closeBtn = document.createElement('button');
+    closeBtn.classList.add('absolute', 'top-2', 'right-2', 'text-gray-400', 'hover:text-gray-600', 'font-bold', 'text-lg');
+    closeBtn.innerHTML = '&times;';
+    closeBtn.onclick = () => document.body.removeChild(popover);
+    content.appendChild(closeBtn);
+
+    // Render URLs in reverse order
+    let urlList = document.createElement('ul');
+    urlList.classList.add('list-none');
+
+    urls.forEach(url => {
+      let listItem = createUrlListItem(url);
+      urlList.appendChild(listItem);
+    });
+    content.appendChild(urlList);
+
+    document.body.appendChild(popover);
+  }
+});
+
+
 
 handleRecentUrls();

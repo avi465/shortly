@@ -7,6 +7,7 @@ base62_encoder();
 
 const tempmail = "";
 
+// this approach is not scalable and based upon the no of documents in database
 router.post("/", (function (req, res) {
     let longUrl = req.body.longUrl;
     Url.find().countDocuments(function (err, count) {
